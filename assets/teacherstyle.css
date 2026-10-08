@@ -1,0 +1,38 @@
+/* teacherstyle.css */
+.form-container {
+    max-width: 420px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin: 14px 0 6px;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: #0b3d91;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.error-text { color: #b00020; }
+.success-text { color: #2e9e44; }

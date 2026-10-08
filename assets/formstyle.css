@@ -1,0 +1,325 @@
+/* formstyle.css - minimalist, macaron purple + light purple
+   Used by: admin/login.php, checkin/teacher.php, checkin/student.php */
+
+:root {
+    --macaron: #b9a3e8;
+    --macaron-deep: #7b5fc4;
+    --lilac: #f1ebfc;
+    --lilac-soft: #faf8ff;
+    --bg: #e6dcf8;
+    --line: #e4dcf5;
+    --ink: #2d2840;
+    --muted: #6f6a82;
+
+    --red: #b84c58;
+    --red-bg: #fbe9eb;
+    --green: #3f8a5e;
+    --green-bg: #e6f4ec;
+    --yellow: #8a6a10;
+    --yellow-bg: #fbf3dc;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "DM Sans", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 248, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--macaron-deep);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--macaron-deep);
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
+
+.form-page {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 440px;
+    background: #fff;
+    padding: 40px 36px;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+}
+
+.form-container p {
+    margin: 0 0 14px;
+}
+
+.form-logo {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--macaron-deep);
+    margin-bottom: 28px;
+}
+
+.form-container h2 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.form-container h3 {
+    margin: 22px 0 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.form-subtitle {
+    margin: 0 0 24px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--lilac-soft);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--macaron);
+    box-shadow: 0 0 0 3px rgba(185, 163, 232, 0.35);
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin: 3px 0 0;
+    accent-color: var(--macaron-deep);
+}
+
+button {
+    margin-top: 6px;
+    padding: 13px;
+    border: none;
+    border-radius: 999px;
+    background: var(--macaron-deep);
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #6a4eb0;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--macaron-deep);
+    outline-offset: 2px;
+}
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+.form-container .error-text,
+.form-container .success-text {
+    padding: 12px 14px;
+    margin: 0 0 20px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.form-container .error-text {
+    background: var(--red-bg);
+    color: var(--red);
+}
+
+.form-container .success-text {
+    background: var(--green-bg);
+    color: var(--green);
+}
+
+
+/* =========================
+   CHECK-IN PAGES
+========================= */
+
+.selected-room-box {
+    background: var(--lilac);
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin: 18px 0 22px;
+    font-size: 15px;
+}
+
+.choice-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.choice-button {
+    display: block;
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--lilac-soft);
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.choice-button:hover {
+    border-color: var(--macaron);
+    background: var(--lilac);
+}
+
+.choice-button strong {
+    display: block;
+    font-weight: 500;
+}
+
+.choice-button span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.authorized-box {
+    background: var(--green-bg);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 22px;
+    font-size: 14px;
+}
+
+.authorized-box h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: var(--green);
+}
+
+.authorized-box p {
+    margin: 0 0 4px;
+}
+
+.warning-box {
+    background: var(--yellow-bg);
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.warning-box p {
+    margin: 4px 0 0;
+}
+
+.warning-box label {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    font-weight: 400;
+    margin: 12px 0 0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 22px;
+    color: var(--macaron-deep);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 16px 5%;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 32px 24px;
+    }
+}

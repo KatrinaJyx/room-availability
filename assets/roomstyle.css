@@ -1,0 +1,346 @@
+/* roomstyle.css - minimalist, macaron purple + light purple */
+
+:root {
+    --macaron: #b9a3e8;
+    --macaron-deep: #7b5fc4;
+    --lilac: #f1ebfc;
+    --lilac-soft: #faf8ff;
+    --bg: #e6dcf8;
+    --line: #e4dcf5;
+    --ink: #2d2840;
+    --muted: #6f6a82;
+
+    --green: #5fae7e;
+    --green-text: #3f8a5e;
+    --green-bg: #e6f4ec;
+    --yellow: #e0b44c;
+    --yellow-text: #a77d12;
+    --yellow-bg: #fbf3dc;
+    --red: #d9707a;
+    --red-text: #b84c58;
+    --red-bg: #fbe9eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "DM Sans", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 248, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--macaron-deep);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--macaron-deep);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--macaron-deep);
+    outline-offset: 3px;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    padding: 50px 7% 80px;
+}
+
+.topbar {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.topbar h1 {
+    margin: 0 0 6px;
+    font-size: 36px;
+}
+
+.topbar p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.success-message {
+    max-width: 600px;
+    margin: 0 auto 28px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: var(--green-bg);
+    color: var(--green-text);
+    text-align: center;
+}
+
+
+/* =========================
+   ROOM CARDS
+========================= */
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.room-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 26px 22px 22px;
+    border: 1px solid var(--line);
+    border-top: 5px solid var(--macaron);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.room-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(90, 64, 150, 0.15);
+}
+
+.room-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.room-icon img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.room-card h3 {
+    margin: 0 0 4px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.room-building {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 0 0 12px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-vacant   { border-top-color: var(--green); }
+.status-upcoming { border-top-color: var(--yellow); }
+.status-in-use   { border-top-color: var(--red); }
+
+.status-vacant .status-badge   { background: var(--green-bg);  color: var(--green-text); }
+.status-upcoming .status-badge { background: var(--yellow-bg); color: var(--yellow-text); }
+.status-in-use .status-badge   { background: var(--red-bg);    color: var(--red-text); }
+
+.usage-info {
+    text-align: left;
+    font-size: 0.85rem;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    margin-top: 14px;
+}
+
+.usage-info p {
+    margin: 2px 0;
+}
+
+.usage-info strong {
+    color: var(--ink);
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(45, 32, 80, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    background: #fff;
+    border-radius: 24px;
+    padding: 34px 32px;
+    max-width: 440px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-box h2 {
+    margin: 0 0 10px;
+    font-size: 26px;
+}
+
+.modal-box h3 {
+    margin: 22px 0 10px;
+    font-size: 18px;
+}
+
+.modal-box p {
+    margin: 6px 0;
+}
+
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--lilac);
+    color: var(--macaron-deep);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: var(--macaron);
+}
+
+.modal-usage {
+    margin-top: 18px;
+    padding: 16px 18px;
+    background: var(--lilac);
+    border-radius: 16px;
+}
+
+.modal-usage h3 {
+    margin-top: 0;
+}
+
+.checkin-options {
+    display: flex;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.checkin-option {
+    flex: 1;
+    padding: 20px 14px;
+    border-radius: 16px;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid var(--line);
+    background: var(--lilac-soft);
+    color: var(--ink);
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.checkin-option:hover {
+    border-color: var(--macaron);
+    background: var(--lilac);
+    transform: translateY(-2px);
+}
+
+.checkin-option strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.checkin-option span {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 16px 5%;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .page {
+        padding: 36px 5% 60px;
+    }
+
+    .topbar h1 {
+        font-size: 28px;
+    }
+
+    .checkin-options {
+        flex-direction: column;
+    }
+}
